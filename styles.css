@@ -1,0 +1,705 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+}
+
+.logo img {
+    height: 50px;
+}
+
+
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: none;
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+/* Header styling */
+
+
+/* Nav menu untuk desktop */
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links ul li {
+    margin: 0 15px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Tombol kontak */
+.contact-btn {
+    display: inline-block; /* Pastikan tetap terlihat */
+    padding: 8px 15px;
+    border: 1px solid #48AEE0;
+    background: none;
+    color: #48AEE0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px; /* Tambahkan jarak dari tombol hamburger */
+}
+
+
+
+
+
+/* Mobile Menu - Default Hidden */
+/* Pastikan menu dropdown berada di atas slider */
+/* Mobile Menu - Default Hidden */
+.mobile-menu {
+    display: none; /* Sembunyikan awalnya */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Efek muncul (fade-in + slide down) */
+.mobile-menu.show {
+    display: flex;  /* Pastikan menu bisa terlihat */
+    flex-direction: column; /* Agar menu tetap vertikal */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s ease;
+}
+.mobile-menu ul li:hover {
+    background: #f0f0f0;
+}
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    display: block;
+    transition: color 0.3s ease;
+}
+.mobile-menu ul li a:hover {
+    color: #007bff;
+}
+
+
+
+/* Responsif: Sembunyikan menu dan tampilkan hamburger */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hanya sembunyikan menu navigasi, bukan tombol */
+    }
+}
+
+
+/* SLIDER */
+.slider {
+    position: relative;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute;
+}
+
+.slider-container img.active {
+    opacity: 1;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(72, 174, 224);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.slider .prev {
+    left: 10px;
+}
+
+.slider .next {
+    right: 10px;
+}
+
+.slider button:hover {
+    background: rgb(70, 109, 226);
+}
+
+/* DOT NAVIGATION */
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background-color: #007bff;
+}
+
+/* DESKRIPSI */
+.description {
+    text-align: center;
+    padding: 30px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.green {
+    color: #28a745;
+}
+
+/* HASIL PEKERJAAN */
+.work {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.work h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Mengurangi jarak antara judul dan deskripsi */
+}
+
+.work p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px; /* Memberikan jarak antara deskripsi dan galeri */
+}
+
+.work-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Menyesuaikan jarak antar gambar */
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.work-gallery img {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* KEUNGGULAN */
+.advantages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: #fff;
+}
+
+.advantages-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Jarak antara teks dan gambar */
+    max-width: 1100px;
+    width: 100%;
+}
+
+.advantages-text {
+    flex: 1;
+    text-align: left;
+}
+
+.advantages-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.advantages-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-text ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.advantages-text ul li img {
+    width: 30px; /* Ukuran ikon */
+    height: auto;
+    margin-right: 10px;
+}
+
+.advantages-image {
+    flex: 1;
+}
+
+.advantages-image img {
+    width: 100%;
+    max-width: 500px; /* Maksimal lebar gambar */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- TEMUKAN KAMI --- */
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff; /* Warna putih */
+}
+
+.contact-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 35px;
+}
+
+/* Kontainer flexbox untuk menyusun elemen */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px; /* Mengurangi jarak agar lebih rapat */
+    max-width: 800px; /* Membatasi lebar agar tidak terlalu melebar */
+    margin: 0 auto; /* Pusatkan kontainer */
+}
+
+/* Setiap item memiliki lebar tetap agar ukurannya seragam */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px; /* Menyamakan lebar semua item */
+}
+
+/* Menyesuaikan ukuran ikon dan spasi */
+.contact-item img {
+    width: 28px; /* Ukuran ikon */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Label kontak */
+.contact-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+/* Teks kontak */
+.contact-text {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* RESPONSIVE untuk tampilan mobile */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Mengubah tata letak menjadi vertikal */
+        gap: 20px; /* Mengurangi jarak antar elemen */
+        align-items: center; /* Pusatkan elemen */
+    }
+
+    .contact-item {
+        width: 100%; /* Lebar penuh agar lebih responsif */
+    }
+}
+
+
+
+
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #d6edf8; /* Warna biru muda */
+    padding: 30px 5%;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Bagian kiri footer (tidak diubah) */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-left p {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Ikon sosial media */
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: auto;
+}
+
+/* Bagian kanan footer */
+.footer-right {
+    display: flex;
+    justify-content: flex-start; /* Supaya sejajar seperti gambar */
+    gap: 80px; /* Sesuaikan dengan tampilan gambar */
+    align-items: flex-start;
+}
+
+/* Kolom dalam footer kanan */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Sama seperti gambar */
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #007bff;
+}
+
+
+
+
+
+/* TEKS HAGIA CLEANERS SESUAI WARNA LOGO */
+.hagia-cleaners {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.hagia-cleaners .hagia {
+    color: #0077C8; /* Warna biru sesuai logo */
+}
+
+.hagia-cleaners .cleaners {
+    color: #36A937; /* Warna hijau sesuai logo */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slider {
+        height: 300px;
+    }
+
+    .work-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work-gallery img {
+        width: 80%;
+        height: auto;
+    }
+
+    .advantages {
+        padding: 30px;
+    }
+
+    .advantages-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .advantages-text {
+        text-align: center;
+    }
+
+    .advantages-text ul {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .advantages-image img {
+        width: 80%;
+        height: auto;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .slider button {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+}
+
+/* Sembunyikan tombol hamburger di desktop */
+
+
+/* Tampilkan hamburger hanya di mobile */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Sembunyikan ikon silang secara default */
+.close-icon {
+    display: none;
+}
+
+/* Saat menu terbuka, sembunyikan ikon hamburger dan tampilkan ikon silang */
+
+
+/* Responsif untuk tampilan mobile */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px; /* Atur jarak antar kolom */
+        width: 100%;
+    }
+
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+/* Tambahkan jarak antara ikon sosial media dan menu footer */
+.social-icons {
+    margin-bottom: 50px; /* Sesuaikan nilai sesuai kebutuhan */
+}
+/* Tambahkan jarak antara Store dan Catalog */
+.footer-column h4:nth-of-type(2) {
+    margin-top: 15px; /* Sesuaikan dengan kebutuhan */
+}
+/* Style untuk tombol hamburger */
+.menu-toggle {
+    display: none; /* Default: disembunyikan */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1001; /* Pastikan muncul di atas menu */
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Saat menu aktif, ubah ikon hamburger menjadi silang (X) */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none; /* Akan diubah menjadi block dengan JavaScript */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Pastikan lebih tinggi dari elemen lain */
+}
+
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+/* Tampilkan tombol hamburger hanya di tampilan mobile */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; /* Sembunyikan navbar biasa */
+    }
+
+    .mobile-menu.active {
+        display: flex !important;  /* Perbaikan utama */
+        flex-direction: column;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
